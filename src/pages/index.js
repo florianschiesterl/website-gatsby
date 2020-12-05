@@ -1,5 +1,7 @@
-import * as React from "react"
-import "../../styles/styles.css"
+import * as React from "react";
+import "../../styles/styles.css";
+import Headline from "../components/Headline";
+import { Link } from "gatsby";
 
 // data
 const links = [
@@ -27,19 +29,20 @@ const links = [
     text: "Cheat Sheet",
     url: "https://www.gatsbyjs.com/docs/cheat-sheet/",
   },
-]
+];
 
-// markup
 const IndexPage = () => {
   return (
     <main className="bg-black h-screen w-screen">
       <title>Home Page</title>
-      <h1 className="text-white text-4xl">
-        Congratulations Flo
-      </h1>
-
+      <section className="container p-20">
+        <Headline>Congratulations Floli</Headline>
+        <Link className="text-white" to="/">
+          Go home
+        </Link>
+      </section>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
