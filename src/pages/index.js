@@ -1,5 +1,4 @@
 import * as React from "react";
-import "../../styles/styles.css";
 import Headline from "../components/Headline";
 import { Link } from "gatsby";
 
