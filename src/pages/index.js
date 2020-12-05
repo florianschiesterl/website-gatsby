@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Headline from "../components/Headline";
 import { Link } from "gatsby";
 
@@ -6,14 +6,15 @@ const IndexPage = () => {
   // initilaize darkmode
   const windowGlobal = typeof window !== "undefined" && window;
 
-  if (
-    windowGlobal &&
-    (windowGlobal.localStorage.theme === "dark" ||
-      !("theme" in windowGlobal.localStorage))
-  ) {
-    document.querySelector("html").classList.add("dark");
-    windowGlobal.localStorage.theme = "dark";
-  }
+  useEffect(function onFirstMount() {
+    if (
+      windowGlobal.localStorage.theme === "dark" ||
+      !("theme" in windowGlobal.localStorage)
+    ) {
+      document.querySelector("html").classList.add("dark");
+      windowGlobal.localStorage.theme = "dark";
+    }
+  }, []); // empty dependencies array means "run this once on first mount"
 
   return (
     <main className="h-screen w-screen">
@@ -78,10 +79,9 @@ const IndexPage = () => {
 const toggleDarkmode = () => {
   const windowGlobal = typeof window !== "undefined" && window;
   if (
-    windowGlobal.localStorage.theme &&
-    (windowGlobal.localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches))
+    windowGlobal.localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.querySelector("html").classList.remove("dark");
     windowGlobal.localStorage.theme = "light";
