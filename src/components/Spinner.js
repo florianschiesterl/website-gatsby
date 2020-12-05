@@ -3,7 +3,7 @@ import React from "react";
 function Spinner(props) {
   return (
     <svg
-      className="text-white animate-spin justify-center items-center"
+      className={props.className}
       width="95px"
       height="34px"
       viewBox="0 0 95 34"

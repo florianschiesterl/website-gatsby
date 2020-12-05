@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Headline from "../components/Headline";
 import Spinner from "../components/Spinner";
 import { Link } from "gatsby";
+import classNames from "classnames";
 
 const IndexPage = () => {
   const [isDark, setDarkmode] = useState(true);
@@ -10,22 +10,27 @@ const IndexPage = () => {
     document.querySelector("html").classList.add("dark");
   }, []); // empty dependencies array means "run this once on first mount"
 
+  const classesText = classNames(
+    "block text-black dark:text-white text-base spring transition-colors duration-1000 leading-normal"
+  );
+
   return (
     <main className="h-screen w-screen bg-black">
       <title>Home Page</title>
       <div className="absolute z-20 top-1/2 left-1/2 -ml-10 -mt-2 items-center animate-fadeout">
-        <Spinner />
+        <Spinner className="text-white animate-spin justify-center items-center" />
       </div>
       <div className="h-screen animate-fadein">
-        <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000">
+        <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000 p-20">
           <nav>
-            <Link className="" to="/">
-              <Headline>Florian Schiesterl</Headline>
+            <Link to="/">
+              <h1 className={classesText}>Florian Schiesterl</h1>
             </Link>
+            <h2 className={classesText}>Colorful within.</h2>
             <button
               aria-label="Toggle Darkmode"
               type="button"
-              className="my-6 w-8 h-8 block transform spring transition-all duration-500 hover:scale-125 bg-black dark:bg-white rounded-full"
+              className="mt-3 w-6 h-6 block bg-black dark:bg-white rounded-full transform spring duration-200 hover:scale-150"
               onClick={() => {
                 if (isDark) {
                   document.querySelector("html").classList.remove("dark");
@@ -35,13 +40,24 @@ const IndexPage = () => {
                   setDarkmode(true);
                 }
               }}
-            />
+            ></button>
+          </nav>
+          <nav className="bottom-20 left-20 absolute">
+            <Link className={classesText} to="/">
+              ~ About
+            </Link>
+            <Link className={classesText} to="/">
+              ~ Odyssey East
+            </Link>
+            <Link className={classesText} to="/">
+              ~ Instagram
+            </Link>
           </nav>
         </section>
 
         <section className="bg-white dark:bg-black ml-1/3 w-2/3 spring transition-colors duration-1000">
           <div className="p-20">
-            <p className="text-black dark:text-white text-4xl spring transition-colors duration-1000">
+            <p className={classesText}>
               Minions ipsum hahaha me want bananaaa! Aaaaaah bananaaaa jiji la
               bodaaa jeje gelatooo bappleees. Bappleees poulet tikka masala
               wiiiii bee do bee do bee do belloo! Pepete daa bee do bee do bee

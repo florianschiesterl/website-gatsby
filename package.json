@@ -17,6 +17,7 @@
   "license": "0BSD",
   "dependencies": {
     "autoprefixer": "^10.0.4",
+    "classnames": "^2.2.6",
     "gatsby": "^2.26.1",
     "gatsby-plugin-image": "^0.3.0",
     "gatsby-plugin-netlify": "^2.7.0",
