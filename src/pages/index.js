@@ -4,33 +4,36 @@ import { Link } from "gatsby";
 
 const IndexPage = () => {
   // initilaize darkmode
-  if (localStorage.theme === "dark" || !("theme" in localStorage)) {
+  const windowGlobal = typeof window !== "undefined" && window;
+  if (
+    windowGlobal.localStorage.theme === "dark" ||
+    !("theme" in windowGlobal.localStorage)
+  ) {
     document.querySelector("html").classList.add("dark");
-    localStorage.theme = "dark";
+    windowGlobal.localStorage.theme = "dark";
   }
 
   return (
     <main className="h-screen w-screen">
       <title>Home Page</title>
       <div className="h-screen">
-        <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-all duration-1000">
+        <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000">
           <nav>
-            <Link
-              className="text-black dark:text-white spring transition-all duration-1000"
-              to="/"
-            >
+            <Link className="" to="/">
               <Headline>Congratulations Floli</Headline>
             </Link>
             <button
+              aria-label="Toggle Darkmode"
               type="button"
               className="my-6 w-8 h-8 block transform spring transition-all duration-500 hover:scale-125 bg-black dark:bg-white rounded-full"
               onClick={toggleDarkmode}
             />
           </nav>
         </section>
-        <section className="bg-white dark:bg-black ml-1/3 w-2/3 spring transition-all duration-1000">
+
+        <section className="bg-white dark:bg-black ml-1/3 w-2/3 spring transition-colors duration-1000">
           <div className="p-20">
-            <p className="text-black dark:text-white spring transition-all duration-1000">
+            <p className="text-black dark:text-white text-4xl spring transition-colors duration-1000">
               Minions ipsum hahaha me want bananaaa! Aaaaaah bananaaaa jiji la
               bodaaa jeje gelatooo bappleees. Bappleees poulet tikka masala
               wiiiii bee do bee do bee do belloo! Pepete daa bee do bee do bee
@@ -71,16 +74,17 @@ const IndexPage = () => {
 };
 
 const toggleDarkmode = () => {
+  const windowGlobal = typeof window !== "undefined" && window;
   if (
-    localStorage.theme === "dark" ||
+    windowGlobal.localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.querySelector("html").classList.remove("dark");
-    localStorage.theme = "light";
+    windowGlobal.localStorage.theme = "light";
   } else {
     document.querySelector("html").classList.add("dark");
-    localStorage.theme = "dark";
+    windowGlobal.localStorage.theme = "dark";
   }
 };
 
