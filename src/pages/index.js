@@ -1,47 +1,42 @@
 import * as React from "react";
 import Headline from "../components/Headline";
-import Menubar from "../components/Menubar";
 import { Link } from "gatsby";
 
-// data
-const links = [
-  {
-    text: "Documentation",
-    url: "https://www.gatsbyjs.com/docs/",
-  },
-  {
-    text: "Tutorials",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "Guides",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "API Reference",
-    url: "https://www.gatsbyjs.com/docs/api-reference/",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-  },
-  {
-    text: "Cheat Sheet",
-    url: "https://www.gatsbyjs.com/docs/cheat-sheet/",
-  },
-];
-
 const IndexPage = () => {
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.querySelector("html").classList.add("dark");
+  } else {
+    document.querySelector("html").classList.remove("dark");
+  }
+
+  // Whenever the user explicitly chooses light mode
+  localStorage.theme = "dark";
+
   return (
     <main className="h-screen w-screen">
       <title>Home Page</title>
-      <div className="flex h-screen">
-        <section className="bg-black w-1/3 p-4">
-          <Menubar />
+      <div className="h-screen">
+        <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed">
+          <nav>
+            <Headline>Congratulations Floli</Headline>
+            <Link className="text-black dark:text-white" to="/">
+              Go home
+            </Link>
+            <button
+              className="p-3 bg-black dark:bg-white rounded-full"
+              label="Dark mode"
+              onClick={toggleDarkmode}
+            />
+          </nav>
         </section>
-        <section className="w-2/3">
+        <section className="bg-white dark:bg-black ml-1/3 w-2/3">
           <div className="p-20">
-            <p className="">
+            <p className="text-black dark:text-white">
               Minions ipsum hahaha me want bananaaa! Aaaaaah bananaaaa jiji la
               bodaaa jeje gelatooo bappleees. Bappleees poulet tikka masala
               wiiiii bee do bee do bee do belloo! Pepete daa bee do bee do bee
@@ -79,6 +74,16 @@ const IndexPage = () => {
       </div>
     </main>
   );
+};
+
+const toggleDarkmode = () => {
+  if (localStorage.theme === "dark") {
+    document.querySelector("html").classList.remove("dark");
+    localStorage.theme = "light";
+  } else {
+    document.querySelector("html").classList.add("dark");
+    localStorage.theme = "dark";
+  }
 };
 
 export default IndexPage;

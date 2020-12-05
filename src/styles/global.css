@@ -20,4 +20,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  font-size: 2em;
+}
+
 @tailwind utilities;
