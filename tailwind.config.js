@@ -6,8 +6,26 @@ module.exports = {
       spacing: {
         "1/3": "33.333333%",
       },
+      keyframes: {
+        fadeout: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
+        fadein: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
+      transitionDelay: {
+        3000: "3000ms",
+      },
+      animation: {
+        fadeout: "fadeout 1000ms ease-out forwards",
+        fadein: "fadein 1000ms ease-in forwards",
+      },
     },
   },
+
   variants: {
     extend: {},
   },

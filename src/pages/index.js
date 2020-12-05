@@ -17,9 +17,9 @@ const IndexPage = () => {
   }, []); // empty dependencies array means "run this once on first mount"
 
   return (
-    <main className="h-screen w-screen">
+    <main className="h-screen w-screen bg-black">
       <title>Home Page</title>
-      <div className="h-screen">
+      <div className="h-screen delay-3000 animate-fadein">
         <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000">
           <nav>
             <Link className="" to="/">
