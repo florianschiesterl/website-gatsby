@@ -16,14 +16,18 @@
   },
   "license": "0BSD",
   "dependencies": {
+    "autoprefixer": "^10.0.4",
     "gatsby": "^2.26.1",
     "gatsby-plugin-image": "^0.3.0",
     "gatsby-plugin-netlify": "^2.7.0",
+    "gatsby-plugin-postcss": "^3.3.0",
     "gatsby-plugin-sharp": "^2.10.0",
     "gatsby-plugin-sitemap": "^2.8.0",
     "gatsby-source-filesystem": "^2.7.0",
     "gatsby-transformer-sharp": "^2.8.0",
+    "postcss": "^8.1.14",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^2.0.1"
   }
 }
