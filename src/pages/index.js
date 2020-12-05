@@ -5,9 +5,11 @@ import { Link } from "gatsby";
 const IndexPage = () => {
   // initilaize darkmode
   const windowGlobal = typeof window !== "undefined" && window;
+
   if (
-    windowGlobal.localStorage.theme === "dark" ||
-    !("theme" in windowGlobal.localStorage)
+    windowGlobal &&
+    (windowGlobal.localStorage.theme === "dark" ||
+      !("theme" in windowGlobal.localStorage))
   ) {
     document.querySelector("html").classList.add("dark");
     windowGlobal.localStorage.theme = "dark";
@@ -76,9 +78,10 @@ const IndexPage = () => {
 const toggleDarkmode = () => {
   const windowGlobal = typeof window !== "undefined" && window;
   if (
-    windowGlobal.localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
+    windowGlobal.localStorage.theme &&
+    (windowGlobal.localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches))
   ) {
     document.querySelector("html").classList.remove("dark");
     windowGlobal.localStorage.theme = "light";
