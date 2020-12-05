@@ -17,7 +17,7 @@ module.exports = {
         },
       },
       transitionDelay: {
-        3000: "3000ms",
+        5000: "5000ms",
       },
       animation: {
         fadeout: "fadeout 1000ms ease-out forwards",
