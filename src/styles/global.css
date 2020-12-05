@@ -1,4 +1,23 @@
 /* ./your-css-folder/styles.css */
 @tailwind base;
 @tailwind components;
+
+/* @import must be at top of file, otherwise CSS will not work, ok cool */
+@import url("//hello.myfonts.net/count/3c5c3d");
+
+@font-face {
+  font-family: "Noctis-Bold";
+  src: url("../fonts/Noctis-Bold/font.woff2") format("woff2"),
+    url("../fonts/Noctis-Bold/font.woff") format("woff");
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Noctis-Bold", serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @tailwind utilities;
