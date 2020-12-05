@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+   title: `Floschie`,
+   siteUrl: `https://florianschiesterl.com`,
+   description: `Blazing fast modern site generator for React`,
+ },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
