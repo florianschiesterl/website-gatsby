@@ -24,4 +24,11 @@ p {
   font-size: 2em;
 }
 
+button:focus,
+button:active,
+a:focus,
+a:active {
+  outline: none !important;
+}
+
 @tailwind utilities;
