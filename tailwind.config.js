@@ -13,15 +13,13 @@ module.exports = {
         },
         fadein: {
           "0%": { opacity: 0 },
+          "50%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
       },
-      transitionDelay: {
-        5000: "5000ms",
-      },
       animation: {
         fadeout: "fadeout 1000ms ease-out forwards",
-        fadein: "fadein 1000ms ease-in forwards",
+        fadein: "fadein 3000ms ease-in forwards",
       },
     },
   },

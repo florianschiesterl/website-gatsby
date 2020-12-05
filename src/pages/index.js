@@ -1,25 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Headline from "../components/Headline";
 import { Link } from "gatsby";
 
 const IndexPage = () => {
-  // initilaize darkmode
-  const windowGlobal = typeof window !== "undefined" && window;
+  const [isDark, setDarkmode] = useState(true);
 
   useEffect(function onFirstMount() {
-    if (
-      windowGlobal.localStorage.theme === "dark" ||
-      !("theme" in windowGlobal.localStorage)
-    ) {
-      document.querySelector("html").classList.add("dark");
-      windowGlobal.localStorage.theme = "dark";
-    }
+    document.querySelector("html").classList.add("dark");
+    setDarkmode(true);
   }, []); // empty dependencies array means "run this once on first mount"
 
   return (
     <main className="h-screen w-screen bg-black">
       <title>Home Page</title>
-      <div className="h-screen animate-fadein delay-5000">
+      <div className="h-screen animate-fadein">
         <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000">
           <nav>
             <Link className="" to="/">
@@ -29,7 +23,15 @@ const IndexPage = () => {
               aria-label="Toggle Darkmode"
               type="button"
               className="my-6 w-8 h-8 block transform spring transition-all duration-500 hover:scale-125 bg-black dark:bg-white rounded-full"
-              onClick={toggleDarkmode}
+              onClick={() => {
+                if (isDark) {
+                  document.querySelector("html").classList.remove("dark");
+                  setDarkmode(false);
+                } else {
+                  document.querySelector("html").classList.add("dark");
+                  setDarkmode(true);
+                }
+              }}
             />
           </nav>
         </section>
@@ -74,21 +76,6 @@ const IndexPage = () => {
       </div>
     </main>
   );
-};
-
-const toggleDarkmode = () => {
-  const windowGlobal = typeof window !== "undefined" && window;
-  if (
-    windowGlobal.localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.querySelector("html").classList.remove("dark");
-    windowGlobal.localStorage.theme = "light";
-  } else {
-    document.querySelector("html").classList.add("dark");
-    windowGlobal.localStorage.theme = "dark";
-  }
 };
 
 export default IndexPage;
