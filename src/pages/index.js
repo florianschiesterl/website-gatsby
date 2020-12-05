@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Headline from "../components/Headline";
+import Spinner from "../components/Spinner";
 import { Link } from "gatsby";
 
 const IndexPage = () => {
@@ -7,17 +8,19 @@ const IndexPage = () => {
 
   useEffect(function onFirstMount() {
     document.querySelector("html").classList.add("dark");
-    setDarkmode(true);
   }, []); // empty dependencies array means "run this once on first mount"
 
   return (
     <main className="h-screen w-screen bg-black">
       <title>Home Page</title>
+      <div className="absolute z-20 top-1/2 left-1/2 -ml-10 -mt-2 items-center animate-fadeout">
+        <Spinner />
+      </div>
       <div className="h-screen animate-fadein">
         <section className="bg-white dark:bg-black w-1/3 h-full p-4 fixed spring transition-colors duration-1000">
           <nav>
             <Link className="" to="/">
-              <Headline>Congratulations Floli</Headline>
+              <Headline>Florian Schiesterl</Headline>
             </Link>
             <button
               aria-label="Toggle Darkmode"
