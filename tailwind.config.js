@@ -3,14 +3,15 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontSize: {
-      base: "2em",
+      base: "1.8em",
       xl: "10em",
     },
     extend: {
       colors: {
-        black: "#161617",
+        black: "#090A0B",
       },
       spacing: {
+        "1/4": "25%",
         "1/3": "33.333333%",
       },
       keyframes: {

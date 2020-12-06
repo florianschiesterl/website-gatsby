@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-   title: `Floschie`,
-   siteUrl: `https://florianschiesterl.com`,
-   description: `Blazing fast modern site generator for React`,
- },
+    title: `Floschie`,
+    siteUrl: `https://florianschiesterl.com`,
+    description: `Blazing fast modern site generator for React`,
+  },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
@@ -19,10 +19,10 @@ module.exports = {
       __key: "images",
     },
     {
-        resolve: `gatsby-plugin-postcss`,
-        options: {
-            postCssPlugins: [require("tailwindcss")],
-            },
-        },
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require("tailwindcss")],
+      },
+    },
   ],
 };
