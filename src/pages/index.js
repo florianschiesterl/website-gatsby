@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import Photos from "../components/Photos";
+import Navitem from "../components/Navitem";
 import { Link } from "gatsby";
 import classNames from "classnames";
 
@@ -44,15 +45,9 @@ const IndexPage = () => {
             ></button>
           </nav>
           <nav className="bottom-16 left-16 absolute">
-            <Link className={classesText} to="/">
-              <span>~</span> About
-            </Link>
-            <Link className={classesText} to="/">
-              <span>~</span> Odyssey East
-            </Link>
-            <Link className={classesText} to="/">
-              <span>~</span> Instagram
-            </Link>
+            <Navitem classesText={classesText} title="Odyssey East" link="/" />
+            <Navitem classesText={classesText} title="About" link="/" />
+            <Navitem classesText={classesText} title="Instagram" link="/" />
           </nav>
         </section>
 

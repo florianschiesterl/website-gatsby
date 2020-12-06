@@ -14,6 +14,11 @@ module.exports = {
         "1/4": "25%",
         "1/3": "33.333333%",
       },
+      rotate: {
+        6: "6deg",
+        45: "45deg",
+        360: "360deg",
+      },
       keyframes: {
         fadeout: {
           "0%": { opacity: 1, transform: "scale(1)" },
@@ -36,7 +41,9 @@ module.exports = {
   },
 
   variants: {
-    extend: {},
+    extend: {
+      rotate: ["group-hover"],
+    },
   },
   plugins: [],
 };
