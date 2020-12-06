@@ -5,26 +5,16 @@ import Img from "gatsby-image";
 function Photos(props) {
   const data = useStaticQuery(graphql`
     query Image {
-      images: allFile(filter: { relativeDirectory: { eq: "odyssey" } }) {
+      images: allFile(
+        filter: { relativeDirectory: { eq: "odyssey" } }
+        sort: { fields: relativePath, order: ASC }
+      ) {
         nodes {
           id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
             }
-          }
-        }
-      }
-      image: file(
-        relativePath: { eq: "odyssey/florianschiesterl_abyanne.jpg" }
-      ) {
-        id
-        childImageSharp {
-          fixed(width: 400) {
-            ...GatsbyImageSharpFixed
-          }
-          fluid(duotone: { highlight: "#ff0000", shadow: "#00ff00" }) {
-            ...GatsbyImageSharpFluid
           }
         }
       }
