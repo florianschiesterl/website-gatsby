@@ -3,7 +3,7 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontSize: {
-      base: "1.8em",
+      base: "1.7em",
       xl: "10em",
     },
     extend: {
@@ -28,9 +28,9 @@ module.exports = {
         },
 
         fadein: {
-          "0%": { opacity: 0 },
-          "60%": { opacity: 0 },
-          "100%": { opacity: 1 },
+          "0%": { opacity: 0, overflow: "hidden" },
+          "60%": { opacity: 0, overflow: "hidden" },
+          "100%": { opacity: 1, overflow: "visible" },
         },
       },
       animation: {

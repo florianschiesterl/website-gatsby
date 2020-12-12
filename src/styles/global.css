@@ -11,6 +11,10 @@
     url("../fonts/Noctis-Bold/font.woff") format("woff");
 }
 
+html.dark {
+  background-color: #090a0b;
+}
+
 body {
   width: 100%;
   margin: 0;

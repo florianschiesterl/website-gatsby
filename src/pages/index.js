@@ -18,7 +18,7 @@ const IndexPage = () => {
 
   return (
     <main className="h-screen w-screen bg-black">
-      <title>Home Page</title>
+      <title>Florian Schiesterl - Colorful within</title>
       <div className="absolute z-20 top-1/2 left-1/2 -ml-10 -mt-2 items-center animate-fadeout pointer-events-none">
         <Spinner className="text-white animate-spin justify-center items-center" />
       </div>
