@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { classesText } from "../components/sharedClasses";
 import { Link } from "gatsby";
 import classNames from "classnames";
+import Tilde from "../components/Tilde";
 
 const Odyssey = () => {
   const [showEnglish, toggleLanguage] = useState(false);
@@ -22,7 +23,9 @@ const Odyssey = () => {
           {showEnglish ? "German" : "English"}
         </button>
       </div>
-      <p className={classesText}>–</p>
+      <p className={classesText}>
+        <Tilde className="w-4 h-4 mr-2 mt-2 transform rotate-6" />
+      </p>
       {showEnglish ? (
         <>
           <p className={classesText}>
