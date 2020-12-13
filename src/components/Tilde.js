@@ -8,7 +8,6 @@ function Tilde(props) {
       height="34px"
       viewBox="0 0 95 34"
     >
-      <title>Spinner</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <path
           fill="currentColor"

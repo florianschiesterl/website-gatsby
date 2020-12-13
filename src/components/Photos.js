@@ -1,29 +1,10 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 
 function Photos(props) {
-  const data = useStaticQuery(graphql`
-    query Image {
-      images: allFile(
-        filter: { relativeDirectory: { eq: "odyssey" } }
-        sort: { fields: relativePath, order: ASC }
-      ) {
-        nodes {
-          id
-          childImageSharp {
-            fluid(maxWidth: 2000, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  `);
-
   return (
-    <div className="">
-      {data.images.nodes.map((image) => (
+    <div>
+      {props.data.images.nodes.map((image) => (
         <Img
           className="mb-10 rounded"
           key={image.id}
