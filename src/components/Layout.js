@@ -34,8 +34,12 @@ function Layout(props) {
           </nav>
           <nav className="bottom-16 left-16 xl:bottom-20 xl:left-20 absolute">
             <Navitem title="Odyssey East" link="/odyssey" />
-            <Navitem title="About" link="/" />
-            <Navitem title="Instagram" link="/" />
+            <Navitem title="About" link="/about" />
+            <Navitem
+              title="Instagram"
+              link="https://www.instagram.com/flo_schie/"
+              target="_blank"
+            />
           </nav>
         </section>
 

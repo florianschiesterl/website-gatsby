@@ -20,7 +20,6 @@ function Photos(props) {
       }
     }
   `);
-  console.log(data);
 
   return (
     <div className="">
