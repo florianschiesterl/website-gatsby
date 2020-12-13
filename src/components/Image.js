@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 
-const Image = ({ src, ...rest }) => {
+const Image = ({ src, alt, ...rest }) => {
   const data = useStaticQuery(graphql`
     query {
       images: allFile(
@@ -35,7 +35,7 @@ const Image = ({ src, ...rest }) => {
   const { node: { childImageSharp, publicURL, extension } = {} } = match;
 
   if (extension === "svg" || !childImageSharp) {
-    return <img src={publicURL} {...rest} />;
+    return <img alt={alt} src={publicURL} {...rest} />;
   }
 
   return <Img fluid={childImageSharp.fluid} {...rest} />;
