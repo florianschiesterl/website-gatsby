@@ -9,8 +9,8 @@ const About = () => {
   return (
     <Layout>
       <h2 className={classesText}>About</h2>
+      <p className={classesText}>–</p>
       <p className={classesText}>
-        –
         <ul>
           <li>
             Street photographer &amp;{" "}
