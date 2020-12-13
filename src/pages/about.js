@@ -2,6 +2,8 @@ import React from "react";
 import Layout from "../components/Layout";
 import { classesText } from "../components/sharedClasses";
 import Image from "../components/Image";
+import { Link } from "gatsby";
+import classNames from "classnames";
 
 const About = () => {
   return (
@@ -39,6 +41,9 @@ const About = () => {
         className="rounded"
         alt="Florian Schiesterl Self"
       />
+      <Link className={classNames(classesText, "underline mt-20")} to="/">
+        Zurück zu den Aufnahmen
+      </Link>
     </Layout>
   );
 };

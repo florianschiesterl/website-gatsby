@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { classesText } from "../components/sharedClasses";
+import { Link } from "gatsby";
+import classNames from "classnames";
 
 const Odyssey = () => {
   return (
@@ -31,6 +33,9 @@ const Odyssey = () => {
         hunderten und tausenden und Millionen von kleinen Momenten des Lebens.
         Überall da wo eine große Hoffnung am Horizont scheint.
       </p>
+      <Link className={classNames(classesText, "underline")} to="/">
+        Zurück zu den Aufnahmen
+      </Link>
     </Layout>
   );
 };

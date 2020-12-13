@@ -10,6 +10,7 @@ function Navitem(props) {
       className={classNames(classesText, "flex items-center group")}
       to={props.link}
       target={props.target}
+      activeClassName="underline"
     >
       <Tilde
         className={classNames(

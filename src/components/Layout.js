@@ -33,6 +33,7 @@ function Layout(props) {
             ></button>
           </nav>
           <nav className="lg:bottom-16 lg:left-16 xl:bottom-20 xl:left-20 lg:absolute">
+            <Navitem title="Home" link="/" />
             <Navitem title="Odyssey East" link="/odyssey" />
             <Navitem title="About" link="/about" />
             <Navitem
