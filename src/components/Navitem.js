@@ -7,17 +7,17 @@ import { classesText } from "./sharedClasses";
 function Navitem(props) {
   return (
     <Link
-      className={classNames(classesText, "flex items-center group")}
+      className={classNames(classesText, "flex items-center group lg:-ml-6")}
       to={props.link}
       target={props.target}
-      activeClassName="underline"
+      activeClassName="active"
     >
       <Tilde
         className={classNames(
-          "transform w-4 h-4 mr-2 mt-2 justify-center items-center transform transition-all duration-500 spring rotate-6 group-hover:rotate-180"
+          "fs-showonactive w-4 h-4 mr-2 mt-2 justify-center items-center transform transition-all duration-500 spring rotate-6 group-hover:rotate-180"
         )}
-      />{" "}
-      {props.title}
+      />
+      <span>{props.title}</span>
     </Link>
   );
 }

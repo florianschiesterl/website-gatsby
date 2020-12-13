@@ -61,4 +61,14 @@ html.dark body button {
     auto;
 }
 
+.fs-showonactive {
+  opacity: 0;
+}
+.fs-showonactive:hover {
+  opacity: 0.5;
+}
+.active .fs-showonactive {
+  opacity: 1;
+}
+
 @tailwind utilities;
