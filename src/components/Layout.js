@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import Navitem from "./Navitem";
 import { Link } from "gatsby";
 import { classesText } from "./sharedClasses";
+import { Helmet } from "react-helmet";
 
 function Layout(props) {
   const [isLight, toggleDarkmode] = useState(false);
 
   return (
     <main className="h-screen w-screen bg-black">
-      <title>Florian Schiesterl - Colorful within</title>
+      <Helmet>
+        <meta name="icon" href="/images/favicon.png" />
+        <title>Florian Schiesterl - Colorful within</title>
+        <meta
+          name="description"
+          content="Street photographer and UX Designer from Vienna, Austria."
+        />
+      </Helmet>
 
       <div className="h-screen">
         <section className="bg-black dark:bg-white lg:w-1/4 lg:h-full p-16 xl:p-20 pr-4 lg:fixed spring transition-colors duration-1000">
