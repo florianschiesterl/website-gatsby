@@ -3,6 +3,7 @@ import Navitem from "./Navitem";
 import { Link } from "gatsby";
 import { classesText } from "./sharedClasses";
 import { Helmet } from "react-helmet";
+import favicon from "../images/favicon.png";
 
 function Layout(props) {
   const [isLight, toggleDarkmode] = useState(false);
@@ -10,7 +11,7 @@ function Layout(props) {
   return (
     <main className="h-screen w-screen bg-black">
       <Helmet>
-        <meta name="icon" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
         <title>Florian Schiesterl - Colorful within</title>
         <meta
           name="description"
