@@ -12,7 +12,7 @@ function Photos(props) {
         nodes {
           id
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

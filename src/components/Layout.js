@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navitem from "./Navitem";
 import { Link } from "gatsby";
 import { classesText } from "./sharedClasses";
@@ -11,7 +11,7 @@ function Layout(props) {
       <title>Florian Schiesterl - Colorful within</title>
 
       <div className="h-screen">
-        <section className="bg-black dark:bg-white w-1/4 h-full p-16 pr-4 fixed spring transition-colors duration-1000">
+        <section className="bg-black dark:bg-white w-1/4 h-full p-16 xl:p-20 pr-4 fixed spring transition-colors duration-1000">
           <nav>
             <Link to="/">
               <h1 className={classesText}>Florian Schiesterl</h1>
@@ -32,7 +32,7 @@ function Layout(props) {
               }}
             ></button>
           </nav>
-          <nav className="bottom-16 left-16 absolute">
+          <nav className="bottom-16 left-16 xl:bottom-20 xl:left-20 absolute">
             <Navitem title="Odyssey East" link="/odyssey" />
             <Navitem title="About" link="/" />
             <Navitem title="Instagram" link="/" />
@@ -40,7 +40,7 @@ function Layout(props) {
         </section>
 
         <section className="bg-black dark:bg-white ml-1/4 w-3/4 spring transition-colors duration-1000">
-          <div className="p-16 animate-fadein">{props.children}</div>
+          <div className="p-16 xl:p-20 animate-fadein">{props.children}</div>
         </section>
       </div>
     </main>
