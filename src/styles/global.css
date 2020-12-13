@@ -26,6 +26,7 @@ body {
 
 p {
   font-size: 1.8em;
+  margin-bottom: 2em;
 }
 
 button:focus,

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Spinner(props) {
+function Tilde(props) {
   return (
     <svg
       className={props.className}
@@ -20,4 +20,4 @@ function Spinner(props) {
   );
 }
 
-export default Spinner;
+export default Tilde;

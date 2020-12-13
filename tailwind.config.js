@@ -20,22 +20,13 @@ module.exports = {
         360: "360deg",
       },
       keyframes: {
-        fadeout: {
-          "0%": { opacity: 1, transform: "scale(1)" },
-          "55%": { opacity: 1, transform: "scale(1)" },
-          "60%": { opacity: 0, transform: "scale(0)" },
-          "100%": { opacity: 0, transform: "scale(0)" },
-        },
-
         fadein: {
-          "0%": { opacity: 0, overflow: "hidden" },
-          "60%": { opacity: 0, overflow: "hidden" },
-          "100%": { opacity: 1, overflow: "visible" },
+          "0%": { opacity: 0, transform: "translateY(1em)" },
+          "100%": { opacity: 1, transform: "translateY(0em)" },
         },
       },
       animation: {
-        fadeout: "fadeout 3000ms ease-out forwards",
-        fadein: "fadein 3000ms ease-in forwards",
+        fadein: "fadein 300ms ease-in forwards",
       },
     },
   },
