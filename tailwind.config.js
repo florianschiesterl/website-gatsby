@@ -7,6 +7,9 @@ module.exports = {
       lg: "2em",
     },
     extend: {
+      screens: {
+        xl: "1300px",
+      },
       colors: {
         black: "#090A0B",
       },
