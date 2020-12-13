@@ -4,18 +4,14 @@ import { Link } from "gatsby";
 import { classesText } from "./sharedClasses";
 
 function Layout(props) {
-  const [isDark, setDarkmode] = useState(true);
-
-  useEffect(function onFirstMount() {
-    document.querySelector("html").classList.add("dark");
-  }, []); // empty dependencies array means "run this once on first mount"
+  const [isLight, toggleDarkmode] = useState(false);
 
   return (
     <main className="h-screen w-screen bg-black">
       <title>Florian Schiesterl - Colorful within</title>
 
       <div className="h-screen">
-        <section className="bg-white dark:bg-black w-1/4 h-full p-16 pr-4 fixed spring transition-colors duration-1000">
+        <section className="bg-black dark:bg-white w-1/4 h-full p-16 pr-4 fixed spring transition-colors duration-1000">
           <nav>
             <Link to="/">
               <h1 className={classesText}>Florian Schiesterl</h1>
@@ -24,14 +20,14 @@ function Layout(props) {
             <button
               aria-label="Toggle Darkmode"
               type="button"
-              className="mt-3 w-6 h-6 block bg-black dark:bg-white rounded-full transform spring duration-200 hover:scale-150"
+              className="mt-3 w-6 h-6 block bg-white dark:bg-black rounded-full transform spring duration-200 hover:scale-150"
               onClick={() => {
-                if (isDark) {
+                if (isLight) {
                   document.querySelector("html").classList.remove("dark");
-                  setDarkmode(false);
+                  toggleDarkmode(false);
                 } else {
                   document.querySelector("html").classList.add("dark");
-                  setDarkmode(true);
+                  toggleDarkmode(true);
                 }
               }}
             ></button>
@@ -43,7 +39,7 @@ function Layout(props) {
           </nav>
         </section>
 
-        <section className="bg-white dark:bg-black ml-1/4 w-3/4 spring transition-colors duration-1000">
+        <section className="bg-black dark:bg-white ml-1/4 w-3/4 spring transition-colors duration-1000">
           <div className="p-16 animate-fadein">{props.children}</div>
         </section>
       </div>
