@@ -21,7 +21,7 @@ export const query = graphql`
         id
         childImageSharp {
           fluid(maxWidth: 2000, quality: 90) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }

@@ -16,7 +16,7 @@ const Image = ({ src, alt, ...rest }) => {
             publicURL
             childImageSharp {
               fluid(maxWidth: 2000, quality: 90) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
