@@ -3,7 +3,7 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontSize: {
-      base: "1.7em",
+      base: "1.5em",
       lg: "2em",
     },
     extend: {

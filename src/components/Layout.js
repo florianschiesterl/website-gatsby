@@ -9,7 +9,7 @@ function Layout(props) {
   const [isLight, toggleDarkmode] = useState(false);
 
   return (
-    <main className="h-screen w-screen bg-black">
+    <main className="w-screen bg-black dark:bg-white spring transition-colors duration-1000">
       <Helmet>
         <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
         <title>Florian Schiesterl - Colorful within</title>
@@ -19,17 +19,17 @@ function Layout(props) {
         />
       </Helmet>
 
-      <div className="h-screen">
-        <section className="bg-black dark:bg-white lg:w-1/4 lg:h-full p-16 xl:p-20 pr-4 lg:fixed spring transition-colors duration-1000">
-          <nav>
+      <div>
+        <section>
+          <nav className="p-4 sm:p-8 flex justify-between">
             <Link to="/">
               <h1 className={classesText}>Florian Schiesterl</h1>
             </Link>
-            {/* <h2 className={classesText}>Colorful within.</h2> */}
+
             <button
               aria-label="Toggle Darkmode"
               type="button"
-              className="mt-3 w-6 h-6 block bg-white dark:bg-black rounded-full transform spring duration-200 hover:scale-150"
+              className="mt-2 w-6 h-6 block bg-white dark:bg-black rounded-full transform spring duration-200 hover:scale-150"
               onClick={() => {
                 if (isLight) {
                   document.querySelector("html").classList.remove("dark");
@@ -41,22 +41,28 @@ function Layout(props) {
               }}
             ></button>
           </nav>
-          <nav className="lg:bottom-16 lg:left-16 xl:bottom-20 xl:left-20 lg:absolute">
-            <Navitem title="Home" link="/" />
-            <Navitem title="Odyssey East" link="/odyssey" />
-            <Navitem title="About" link="/about" />
-            <Navitem
-              title="Instagram"
-              link="https://www.instagram.com/flo_schie/"
-              target="_blank"
-            />
-          </nav>
         </section>
 
-        <section className="bg-black dark:bg-white lg:ml-1/4 lg:w-3/4 spring transition-colors duration-1000">
-          <div className="p-4 lg:p-16 xl:p-20 animate-fadein">
+        <section>
+          <div className="m-4 sm:m-12 md:m-16 lg:m-36 xl:m-36 animate-fadein">
             {props.children}
           </div>
+        </section>
+
+        <section>
+          <nav className="p-8 flex justify-between">
+            <Link
+              to="https://www.instagram.com/flo_schie/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={classesText}>Instagram</span>
+            </Link>
+
+            <a href="mailto:hi@florianschiesterl.com?subject=I%20love%20you">
+              <span className={classesText}>hi@florianschiesterl.com</span>
+            </a>
+          </nav>
         </section>
       </div>
     </main>

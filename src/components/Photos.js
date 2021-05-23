@@ -6,7 +6,7 @@ function Photos(props) {
     <div>
       {props.data.images.nodes.map((image) => (
         <Img
-          className="mb-10 rounded"
+          className="mb-16 md:mb-32 rounded"
           key={image.id}
           fluid={image.childImageSharp.fluid}
         />
