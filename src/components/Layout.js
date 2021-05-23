@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navitem from "./Navitem";
 import { Link } from "gatsby";
 import { classesText } from "./sharedClasses";
 import { Helmet } from "react-helmet";
@@ -29,7 +28,7 @@ function Layout(props) {
             <button
               aria-label="Toggle Darkmode"
               type="button"
-              className="mt-2 w-6 h-6 block bg-white dark:bg-black rounded-full transform spring duration-200 hover:scale-150"
+              className="mt-2 w-6 h-6 block border-2 border-white dark:border-black rounded-full transform spring duration-200 hover:scale-150"
               onClick={() => {
                 if (isLight) {
                   document.querySelector("html").classList.remove("dark");
@@ -51,13 +50,13 @@ function Layout(props) {
 
         <section>
           <nav className="p-8 flex justify-between">
-            <Link
-              to="https://www.instagram.com/flo_schie/"
+            <a
+              href="https://www.instagram.com/flo_schie/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className={classesText}>Instagram</span>
-            </Link>
+            </a>
 
             <a href="mailto:hi@florianschiesterl.com?subject=I%20love%20you">
               <span className={classesText}>hi@florianschiesterl.com</span>
