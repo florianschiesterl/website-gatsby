@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-function shuffleArray(array) {
+/*function shuffleArray(array) {
   let i = array.length - 1;
   for (; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -10,14 +10,14 @@ function shuffleArray(array) {
     array[j] = temp;
   }
   return array;
-}
+}*/
 
 function Photos(props) {
-  const shuffledPosts = shuffleArray(props.data.images.nodes);
+  //const shuffledPosts = shuffleArray(props.data.images.nodes);
 
   return (
     <div>
-      {shuffledPosts.map((image) => (
+      {props.data.images.nodes.map((image) => (
         <Img
           className="mb-16 md:mb-32 rounded"
           key={image.id}
