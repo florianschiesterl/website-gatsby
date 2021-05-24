@@ -17,7 +17,7 @@ function Photos(props) {
 
   return (
     <div>
-      {props.data.images.nodes.map((image, idx) => (
+      {shuffledPosts.map((image, idx) => (
         <Img
           className="mb-16 md:mb-32 rounded"
           key={image.idx}
