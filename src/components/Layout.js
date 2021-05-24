@@ -49,7 +49,7 @@ function Layout(props) {
         </section>
 
         <section>
-          <nav className="p-8 flex justify-between">
+          <nav className="p-8 sm:flex sm:justify-between">
             <a
               href="https://www.instagram.com/flo_schie/"
               target="_blank"
