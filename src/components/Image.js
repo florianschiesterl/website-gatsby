@@ -15,7 +15,7 @@ const Image = ({ src, alt, ...rest }) => {
             extension
             publicURL
             childImageSharp {
-              fluid(maxWidth: 2000, quality: 90) {
+              fluid(maxWidth: 1600, quality: 90) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
@@ -38,7 +38,9 @@ const Image = ({ src, alt, ...rest }) => {
     return <img alt={alt} src={publicURL} {...rest} />;
   }
 
-  return <Img fluid={childImageSharp.fluid} {...rest} />;
+  return (
+    <Img backgroundColor="#1f1f23" fluid={childImageSharp.fluid} {...rest} />
+  );
 };
 
 Image.propTypes = {
