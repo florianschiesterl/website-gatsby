@@ -19,7 +19,7 @@ function Layout(props) {
       </Helmet>
 
       <div>
-        <section>
+        <header>
           <nav className="p-4 sm:p-8 flex justify-between">
             <Link to="/">
               <h1 className={classesText}>Florian Schiesterl</h1>
@@ -40,15 +40,15 @@ function Layout(props) {
               }}
             ></button>
           </nav>
-        </section>
+        </header>
 
-        <section>
+        <section className="container mx-auto max-w-screen-2xl">
           <div className="m-4 sm:m-12 md:m-16 lg:m-36 xl:m-36 animate-fadein">
             {props.children}
           </div>
         </section>
 
-        <section>
+        <footer>
           <nav className="p-8 sm:flex sm:justify-between">
             <a
               href="https://www.instagram.com/flo_schie/"
@@ -62,7 +62,7 @@ function Layout(props) {
               <span className={classesText}>hi@florianschiesterl.com</span>
             </a>
           </nav>
-        </section>
+        </footer>
       </div>
     </main>
   );
