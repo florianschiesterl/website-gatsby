@@ -22,7 +22,7 @@ function Layout(props) {
         <header>
           <nav className="p-4 sm:p-8 flex justify-between">
             <Link to="/">
-              <h1 className={classesText}>Florian Schiesterl</h1>
+              <h1 className={classesText}>Flo Schie</h1>
             </Link>
 
             <button
