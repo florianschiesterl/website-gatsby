@@ -9,7 +9,13 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-postcss",
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-postcss",
+      options: {
+        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -17,12 +23,6 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [require("tailwindcss")],
-      },
     },
   ],
 };
