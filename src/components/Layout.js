@@ -76,6 +76,10 @@ function Layout(props) {
             {/* <a href="mailto:hi@florianschiesterl.com?subject=I%20love%20you">
               <span className={classesText}></span>
             </a> */}
+
+            <a href="#">
+              <span className={classesText}>Back to top</span>
+            </a>
           </nav>
         </footer>
       </div>
