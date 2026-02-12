@@ -115,13 +115,22 @@ function Photos(props) {
         }
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        const prevIndex = Math.max(focusedImageIndex - 1, 0);
-        setFocusedImageIndex(prevIndex);
-        if (imageRefs.current[prevIndex]) {
-          imageRefs.current[prevIndex].scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
+        if (focusedImageIndex === 0) {
+          // Scroll to top of page
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
           });
+          setFocusedImageIndex(-1);
+        } else {
+          const prevIndex = Math.max(focusedImageIndex - 1, 0);
+          setFocusedImageIndex(prevIndex);
+          if (imageRefs.current[prevIndex]) {
+            imageRefs.current[prevIndex].scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }
         }
       }
     };
