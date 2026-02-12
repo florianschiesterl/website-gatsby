@@ -17,10 +17,20 @@ function Layout(props) {
     return false;
   });
 
+  const [headerLoaded, setHeaderLoaded] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
+
   useEffect(() => {
     // Update localStorage when dark mode changes
     localStorage.setItem('darkMode', isLight ? 'light' : 'dark');
   }, [isLight]);
+
+  useEffect(() => {
+    // Trigger header animation
+    setTimeout(() => setHeaderLoaded(true), 100);
+    // Trigger content animation after header
+    setTimeout(() => setContentLoaded(true), 400);
+  }, []);
 
   return (
     <main className="w-screen bg-black dark:bg-white spring transition-colors duration-1000">
@@ -34,7 +44,12 @@ function Layout(props) {
       </Helmet>
 
       <div>
-        <header>
+        <header
+          style={{
+            opacity: headerLoaded ? 1 : 0,
+            transition: 'opacity 600ms ease-out'
+          }}
+        >
           <nav className="p-4 sm:p-8 flex justify-between">
             <Link to="/">
               <h1 className={classesText}>floschie</h1>
@@ -43,7 +58,7 @@ function Layout(props) {
             <button
               aria-label="Toggle Darkmode"
               type="button"
-              className="lg:fixed lg:right-8 mt-2 w-6 h-6 block border-2 border-white dark:border-black rounded-full transform spring duration-200 hover:scale-150"
+              className="mt-2 w-6 h-6 block border-2 border-white dark:border-black rounded-full transform spring duration-200 hover:scale-150"
               onClick={() => {
                 if (isLight) {
                   document.documentElement.classList.remove("dark");
@@ -58,7 +73,13 @@ function Layout(props) {
         </header>
 
         <section className="container mx-auto max-w-screen-2xl">
-          <div className="m-4 sm:m-12 md:m-16 lg:m-36 xl:m-36 animate-fadein">
+          <div 
+            className="m-4 sm:m-12 md:m-16 lg:m-36 xl:m-36"
+            style={{
+              opacity: contentLoaded ? 1 : 0,
+              transition: 'opacity 800ms ease-out'
+            }}
+          >
             {props.children}
           </div>
         </section>
