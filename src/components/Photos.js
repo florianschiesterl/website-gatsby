@@ -74,23 +74,36 @@ function Photos(props) {
         WebkitTouchCallout: 'none'
       }}
     >
-      {shuffledImages.map((image, idx) => (
-        <Img
-          className="mb-16 md:mb-32 rounded pointer-events-none"
-          key={image.id}
-          fluid={image.childImageSharp.fluid}
-          backgroundColor="#1f1f23"
-          onContextMenu={handleContextMenu}
-          onDragStart={handleDragStart}
-          draggable="false"
-          style={{
-            pointerEvents: 'none',
-            userSelect: 'none',
-            WebkitUserSelect: 'none',
-            WebkitTouchCallout: 'none'
-          }}
-        />
-      ))}
+      {shuffledImages.map((image, idx) => {
+        // Detect if image is portrait (height > width) or landscape
+        const aspectRatio = image.childImageSharp.fluid.aspectRatio;
+        const isPortrait = aspectRatio < 1;
+        
+        return (
+          <div
+            key={image.id}
+            className={`mb-16 md:mb-32 ${isPortrait ? 'mx-auto' : ''}`}
+            style={{
+              maxWidth: isPortrait ? '50%' : '100%'
+            }}
+          >
+            <Img
+              className="rounded pointer-events-none"
+              fluid={image.childImageSharp.fluid}
+              backgroundColor="#1f1f23"
+              onContextMenu={handleContextMenu}
+              onDragStart={handleDragStart}
+              draggable="false"
+              style={{
+                pointerEvents: 'none',
+                userSelect: 'none',
+                WebkitUserSelect: 'none',
+                WebkitTouchCallout: 'none'
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
