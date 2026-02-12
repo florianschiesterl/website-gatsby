@@ -90,6 +90,37 @@ function Photos(props) {
     };
   }, [shuffledImages]);
 
+  // Track which image is in the center of viewport when scrolling
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let closestIndex = -1;
+      let closestDistance = Infinity;
+
+      imageRefs.current.forEach((ref, idx) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          const imageCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(imageCenter - viewportCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = idx;
+          }
+        }
+      });
+
+      if (closestIndex !== -1 && closestDistance < window.innerHeight) {
+        setFocusedImageIndex(closestIndex);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [shuffledImages]);
+
   // Prevent right-click context menu
   const handleContextMenu = (e) => {
     e.preventDefault();
@@ -162,25 +193,36 @@ function Photos(props) {
             data-index={idx}
             className={`mb-16 md:mb-32 ${isPortrait ? 'mx-auto' : ''}`}
             style={{
+              width: isPortrait ? 'auto' : '100%',
               maxWidth: isPortrait ? '50%' : '100%',
               opacity: isVisible ? 1 : 0,
               transition: 'opacity 800ms cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           >
-            <Img
-              className="rounded pointer-events-none"
-              fluid={image.childImageSharp.fluid}
-              backgroundColor="#1f1f23"
-              onContextMenu={handleContextMenu}
-              onDragStart={handleDragStart}
-              draggable="false"
-              style={{
-                pointerEvents: 'none',
-                userSelect: 'none',
-                WebkitUserSelect: 'none',
-                WebkitTouchCallout: 'none'
-              }}
-            />
+            <div style={{
+              width: '100%',
+              height: isPortrait ? '95vh' : 'auto',
+              position: 'relative'
+            }}>
+              <Img
+                className="rounded pointer-events-none"
+                fluid={image.childImageSharp.fluid}
+                backgroundColor="#1f1f23"
+                onContextMenu={handleContextMenu}
+                onDragStart={handleDragStart}
+                draggable="false"
+                style={{
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                  WebkitUserSelect: 'none',
+                  WebkitTouchCallout: 'none',
+                  height: isPortrait ? '100%' : 'auto'
+                }}
+                imgStyle={{
+                  objectFit: isPortrait ? 'contain' : 'cover'
+                }}
+              />
+            </div>
           </div>
         );
       })}
