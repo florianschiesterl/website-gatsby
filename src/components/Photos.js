@@ -62,9 +62,18 @@ function Photos(props) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // On larger screens, use a generous bottom margin so the next photo
+    // is already visible when its top edge peeks in at the bottom of the viewport.
+    // This signals to the user that they can keep scrolling.
+    const bottomMargin = window.innerWidth >= 1024
+      ? '300px'   // large screens: trigger 300px before entering viewport
+      : window.innerWidth >= 768
+        ? '150px'  // medium screens: trigger 150px before
+        : '-100px'; // small screens: keep original behaviour (fade in after 100px inside viewport)
+
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -100px 0px',
+      rootMargin: `0px 0px ${bottomMargin} 0px`,
       threshold: 0.1
     };
 
@@ -194,15 +203,18 @@ function Photos(props) {
             className={`mb-16 md:mb-32 ${isPortrait ? 'mx-auto' : ''}`}
             style={{
               width: isPortrait ? 'auto' : '100%',
-              maxWidth: isPortrait ? '50%' : '100%',
+              maxWidth: isPortrait ? '100%' : '100%',
               opacity: isVisible ? 1 : 0,
               transition: 'opacity 800ms cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           >
-            <div style={{
+            <div 
+              className={isPortrait ? 'max-w-full md:max-w-[50%] md:h-[95vh]' : ''}
+              style={{
               width: '100%',
-              height: isPortrait ? '95vh' : 'auto',
-              position: 'relative'
+              height: isPortrait ? 'auto' : 'auto',
+              position: 'relative',
+              margin: isPortrait ? '0 auto' : '0'
             }}>
               <Img
                 className="rounded pointer-events-none"
@@ -216,7 +228,7 @@ function Photos(props) {
                   userSelect: 'none',
                   WebkitUserSelect: 'none',
                   WebkitTouchCallout: 'none',
-                  height: isPortrait ? '100%' : 'auto'
+                  height: 'auto'
                 }}
                 imgStyle={{
                   objectFit: isPortrait ? 'contain' : 'cover'
