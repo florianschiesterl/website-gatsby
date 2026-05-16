@@ -94,13 +94,12 @@ function Layout(props) {
               <span className={classesText}>Instagram</span>
             </a>
 
-            {/* <a href="mailto:hi@florianschiesterl.com?subject=I%20love%20you">
-              <span className={classesText}></span>
-            </a> */}
-
-            <a href="#">
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
               <span className={classesText}>Back to top</span>
-            </a>
+            </button>
           </nav>
         </footer>
       </div>

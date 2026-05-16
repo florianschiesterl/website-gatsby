@@ -88,12 +88,13 @@ function Photos(props) {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    imageRefs.current.forEach((ref) => {
+    const observedRefs = imageRefs.current;
+    observedRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      imageRefs.current.forEach((ref) => {
+      observedRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -180,7 +181,8 @@ function Photos(props) {
   }, [focusedImageIndex, shuffledImages.length]);
 
   return (
-    <div 
+    <div
+      role="presentation"
       onContextMenu={handleContextMenu}
       className="select-none"
       style={{ 
@@ -222,7 +224,7 @@ function Photos(props) {
                 backgroundColor="#1f1f23"
                 onContextMenu={handleContextMenu}
                 onDragStart={handleDragStart}
-                draggable="false"
+                draggable={false}
                 style={{
                   pointerEvents: 'none',
                   userSelect: 'none',

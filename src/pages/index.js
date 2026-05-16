@@ -15,7 +15,7 @@ export const query = graphql`
   query ImagesHome {
     images: allFile(
       filter: { relativeDirectory: { eq: "odyssey" } }
-      sort: { fields: relativePath, order: ASC }
+      sort: { relativePath: ASC }
     ) {
       nodes {
         id
