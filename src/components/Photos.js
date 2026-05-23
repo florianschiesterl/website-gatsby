@@ -1,6 +1,19 @@
 import React, { useMemo, useEffect, useState, useRef } from "react";
 import Img from "gatsby-image";
 
+const FALLBACK_ALT = "Street photograph by Florian Schiesterl";
+
+function buildAlt(name) {
+  if (!name || typeof name !== "string") return FALLBACK_ALT;
+  const cleaned = name
+    .replace(/^[0-9]+[\s._-]*/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!cleaned) return FALLBACK_ALT;
+  return `Street photograph — ${cleaned}`;
+}
+
 function Photos(props) {
   const imageRefs = useRef([]);
   const [visibleImages, setVisibleImages] = useState(new Set());
@@ -221,6 +234,7 @@ function Photos(props) {
               <Img
                 className="rounded pointer-events-none"
                 fluid={image.childImageSharp.fluid}
+                alt={buildAlt(image.name)}
                 backgroundColor="#1f1f23"
                 onContextMenu={handleContextMenu}
                 onDragStart={handleDragStart}
